@@ -1,0 +1,15 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-tomcat
+  annotations:
+    kubernets.io/ingress.class: "nginx"
+spec:
+  rules:
+  - host: tomcat.rickie.com
+    http:
+      paths:
+      - path:
+        backend:
+          serviceName: tomcat-svc
+          servicePort: 8080
